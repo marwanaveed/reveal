@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Reveal</title>
+    <style>
+       * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        body {
+            
+            /* background-color: #f3f3f3; */
+            color: #ffffff;
+            text-align: center;
+            /* background-image: url(https://plus.unsplash.com/premium_photo-1709431587013-1b750b46674c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); */
+            background-image: url(https://plus.unsplash.com/premium_photo-1711582940743-06d0b2b7c4d6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            min-height: 105vh;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            animation: bg-pan-left 8s both;
+        }
+        
+        .logo{
+            display: flex;
+            width: 100%;
+            margin-bottom: 10px;
+            
+
+        }
+        .logo h1{
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            padding: 20px 30px;
+            
+        }
+        .container {
+            max-width: 800px;
+            background-color: #55545448;
+            padding: 40px;
+            margin: 80px auto ;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+           
+        }
+        .container h1 {
+            padding: 20px 0;
+        }
+        .guess-section, .reveal-section {
+            margin: 20px 0;
+
+        }
+        .reveal-section h2{
+            margin: 5px 0;
+            color: #f5007a;
+            animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        
+            /* padding: 5px 0; */
+        }
+        .button {
+            padding: 15px 40px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-guess {
+            background-color: #87ceeb;
+            color: #fff;
+        }
+        .button-guess2 {
+            background-color: #ff69b4;
+            color: #f3f3f3;
+        }
+        .button-guess:hover {
+            background-color: #48b4df;
+            color: #fff;
+        }
+        .button-guess2:hover {
+            background-color: #f8409c;
+            color: #f3f3f3;
+        }
+        /* .button-guess.clicked {
+          background-color: #ff69b4;
+        } */
+        
+
+        .hidden {
+            display: none;
+        }
+        /* .gallery img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px 0;
+        } */
+        .contact {
+            margin: 20px 0;
+        }
+
+        .tracking-in-expand {
+	-webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+        @media only screen and (max-width: 600px) {
+    .container {
+        padding: 30px;
+    }
+    .container h1 {
+        font-size: 24px;
+    }
+    .button {
+        padding: 12px 30px;
+    }
+}
+@keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .reveal-section {
+            margin: 20px 0;
+            animation: fadeIn 1s ease-out; /* Apply the fade-in animation */
+        }
+        .bg-pan-left {
+	-webkit-animation: bg-pan-left 8s both;
+	        animation: bg-pan-left 8s both;
+}
+
+ @-webkit-keyframes bg-pan-left {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes bg-pan-left {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+    </style>
+</head>
+<body class="bg-pan-left">
+   
+    <div class="logo">
+     <h1 class="tracking-in-expand">Gender Reveal</h1>
+    </div>
+    <div class="container">
+        <h1>Welcome to Our Gender Reveal!</h1>
+        <p>We are so excited to share this special moment with you. Can you guess if it's a boy or a girl?</p>
+        
+        <div class="guess-section">
+            <h2>Guess the Gender</h2>
+            <button class=" button button-guess" onclick="showReveal()">Boy</button>
+            <button class=" button button-guess2" onclick="showReveal()">Girl</button>
+        </div>
+        
+        <div class="reveal-section hidden" id="reveal-section">
+            <h2>It's a Girl!</h2>
+            <p>We are thrilled to announce that we are expecting a beautiful baby girl!</p>
+            <!-- <div class="gallery">
+                <img src="https://via.placeholder.com/400x300.png?text=Ultrasound+Image" alt="Ultrasound Image">
+            </div> -->
+        </div>
+         
+    </div>
+
+    <script>
+        function showReveal() {
+            document.getElementById('reveal-section').classList.remove('hidden');
+        }
+
+    </script>
+</body>
+</html>
